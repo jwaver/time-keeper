@@ -14,3 +14,16 @@ md-list.active {
     background: #57b5ef;
     color: #fff;
 }
+
+
+.login{
+    background: #222222;
+}
+.login form{
+    background: #5663a7;
+    padding: 30px;
+    border-radius: 4px;
+}
+.login form *{
+    color: #fff;
+}
