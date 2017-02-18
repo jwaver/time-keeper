@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Time Keeper</title>
+
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/fullcalendar/dist/fullcalendar.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="node_modules/ng-notify/dist/ng-notify.min.css">
+    <link rel="stylesheet" href="app/asset/css/style.css">
+    <link rel="stylesheet" href="app/asset/css/theme.css">
+
+
+    <script src="app/scripts/require.js"></script>
+    <script src="storage.js"></script>
+    <script src="node_modules/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+</head>
+
+<body>
+
+    <aside name="nav" class="col-xs-1 col-sm-1 col-md-1 text-center" ng-show="$state.current.name !== 'login'" ng-include src="'app/views/nav.html'" style="height: 100%;float: left;display: block;background: #464545;margin: 0;padding: 0; position: fixed; max-width: 80px;"></aside>
+
+    <ui-view class="col-xs-11 col-sm-11 col-md-11" style="float:right;"></ui-view>
+
+</body>
+<script src="app/scripts/app.js"></script>
+<script src="app/scripts/services.js"></script>
+<script src="app/scripts/route.js"></script>
+<script src="app/scripts/controllers.js"></script>
+
+</html>

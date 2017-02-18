@@ -1,0 +1,24 @@
+
+<div layout="column">
+  <div flex>
+      <md-button class="md-raised md-primary" ng-click="go(0)">Add Member</md-button>
+  </div>
+  <div flex>
+    <md-card ng-repeat="user in users">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{user.name}}</span>
+                <span class="md-subhead">{{user.email}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-lg card-media">
+                    <img ng-src="{{ user.avatar }}" onerror="this.src='app/asset/images/avatar-default.png'" alt="{{user.name}}" style="box-shadow: 0 0 6px #aaa;border-radius: 100px;height: 100px;width: 100px;margin: 0 auto;display: block;">
+                </div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" ng-click="go(user._id)">View</md-button>
+        </md-card-actions>
+    </md-card>
+  </div>
+</div>

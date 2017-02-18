@@ -1,0 +1,18 @@
+
+ <div class="login" layout="row" layout-wrap layout-align="center center">
+    <form name="userForm" ng-submit="submit()">
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" md-no-float>
+                <label>Username</label>
+                <input ng-model="form.username" required>
+            </md-input-container>
+
+            <md-input-container class="md-block" md-no-float>
+                <label>Password</label>
+                <input type="password" ng-model="form.password" required>
+            </md-input-container>
+        </div>
+
+        <md-button type="submit" class="md-raised md-primary">Login</md-button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+html, body {
+    height: 96.5%;
+    margin: 0;
+    padding: 0;
+}
+.clr{clear: both;}
+.ng-scope{ height: 100%;}
+pre{background: #171717;color: #20e83a;}
+
+aside{border-right: 1px solid #dbdbdb;}
+
+md-list {padding: 0;}
+md-list.active {
+    background: #57b5ef;
+    color: #fff;
+}

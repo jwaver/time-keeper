@@ -1,0 +1,16 @@
+<div class="account-wall">
+    <img class="profile-img" src="app/asset/images/avatar-default.png" alt="">
+    <form class="form-signin" ng-submit="submit()">
+        <input type="text" class="form-control" placeholder="Username" ng-model="form.username" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" ng-model="form.password" required>
+        <!-- <button class="btn btn-md btn-default btn-block" type="submit" ui-sref="dashboard" ng-show='!stateIsLoading'>Login</button> -->
+        <button class="btn btn-default btn-block" ng-show='stateIsLoading'><i class="glyphicon glyphicon-repeat gly-spin"></i></button>
+        <input type="submit" value="Login" class="btn btn-primary btn-block">
+        <br>
+        <!-- <p class="">
+            <input type="checkbox" value="remember-me">
+            Remember me
+        </p> -->
+        <span class="clearfix"></span>
+    </form>
+</div>

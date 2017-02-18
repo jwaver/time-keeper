@@ -1,0 +1,132 @@
+
+<!-- Add User -->
+<section ng-show="id==0">
+    <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-sm-offset-3">
+        <form ng-submit="create()">
+            <section class="col-md-12">
+                <img ng-src="{{ form.avatar }}" onerror="this.src='app/asset/images/avatar-default.png'" alt="{{form.name}}" style="border-radius: 100px;height: 200px;width: 200px;margin: 0 auto;display: block;">
+                <h1 class="text-center">{{form.name}}</h1>
+            </section>
+
+            <div class="form-group">
+        		<label for="username" class="cols-sm-2 control-label">Github Username</label>
+        		<div class="cols-sm-10">
+        			<div class="input-group">
+        				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        				<input type="text" class="form-control" name="username" placeholder="Enter your Github Username" ng-model="form.username" required>
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="form-group">
+        		<label for="name" class="cols-sm-2 control-label">Your Name</label>
+        		<div class="cols-sm-10">
+        			<div class="input-group">
+        				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        				<input type="text" class="form-control" name="name" placeholder="Enter your Name" ng-model="form.name" required>
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="form-group">
+        		<label for="email" class="cols-sm-2 control-label">Your Email</label>
+        		<div class="cols-sm-10">
+        			<div class="input-group">
+        				<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+        				<input type="email" class="form-control" name="email" placeholder="Enter your Email" ng-model="form.email">
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="form-group">
+        		<label for="password" class="cols-sm-2 control-label">Password</label>
+        		<div class="cols-sm-10">
+        			<div class="input-group">
+        				<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        				<input type="password" class="form-control" name="password" placeholder="Enter your Password" ng-model="form.password">
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="form-group">
+        		<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+        		<div class="cols-sm-10">
+        			<div class="input-group">
+        				<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        				<input type="password" class="form-control" name="confirm" placeholder="Confirm your Password" ng-model="form.confirm">
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="form-group ">
+        		<input type="submit" value="Save" class="btn btn-primary btn-block" ng-show='!loader'>
+                <button class="btn btn-default btn-block" ng-show='loader'><i class="glyphicon glyphicon-repeat gly-spin"></i></button>
+        	</div>
+        </form>
+    </div>
+</section>
+
+<!-- View User details -->
+<section ng-show="id!=0">
+    <br class="clr">
+
+    <div class="col-sm-12 col-md-12">
+        <div class="alert alert-info text-center">
+            <button class="btn btn-primary btn-lg pull-left" ng-disabled="status" ng-click="inOut(true)">Time-In</button>
+            <input class="form-control" type="text" style="display: inline-block;width: 30%;text-align: center;height: 65px;font-size: 20px;font-weight: bold;"
+             ng-model="clock"
+             ng-click="editable=true;"
+             ng-blur="editable=false; customInOut()"
+             ng-readonly="!editable">
+            <button class="btn btn-default btn-lg pull-right" ng-disabled="!status" ng-click="inOut(false)">Time-Out</button>
+            <span class="clr"></span>
+        </div>
+    </div>
+
+    <span class="clr"></span>
+
+    <section class="">
+        <img ng-src="{{ user.avatar }}" onerror="this.src='app/asset/images/avatar-default.png'" style="border-radius: 100px;height: 200px;width: 200px;margin: 0 auto;display: block;">
+        <h1 class="text-center">{{user.name}}</h1>
+    </section>
+
+    <br class="clr">
+
+    <section class="col-md-12">
+        <button class="btn btn-default">Lates &nbsp;<span class="badge">3</span></a></button>
+        <button class="btn btn-default">Absents &nbsp;<span class="badge">3</span></a></button>
+        <button class="btn btn-default">Leaves &nbsp;<span class="badge">3</span></a></button>
+        <md-button class="md-primary md-raised pull-right" ng-click="remove($event)" >Remove</md-button>
+    </section>
+
+    <br class="clr">
+
+    <div class="col-lg-6 col-md-offset-3 col-lg-12 col-md-offset-0">
+        <div class="panel panel-default">
+            <h3 class="text-center">Logs</h3>
+            <div class="panel-body">
+                <table class="table table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>In</th>
+                            <th>Out</th>
+                            <th>Tag</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="log in timeLogs">
+                            <td>{{log.in}}</td>
+                            <td>{{log.out}}</td>
+                            <td>{{calcService.getTag(log.in)}}</td>
+                            <td>P{{calcService.getAmount(log.in)}}</td>
+                            <td>{{log.date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
