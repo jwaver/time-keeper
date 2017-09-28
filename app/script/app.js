@@ -1,7 +1,7 @@
 'use strict';
 
 
-var app = angular.module('app', ['ngMaterial','ngMessages','ui.router']);
+var app = angular.module('app', ['ngMaterial','ui.router']);
 
 
 app.run(['$rootScope', '$state',function($rootScope, $state, $stateParams){
